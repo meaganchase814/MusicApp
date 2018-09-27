@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Itunes.Models.Albums>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Music App</h2>
+
+
+<div class="Albums">
+    <div class="hm">
+        <form action="/Albums/Analyze" method="get">
+            Artist: <input type="text" name="Artist" /><br />
+            AlbumName: <input type="text" name="AlbumName" /><br />
+            ReleaseDate: <input type="Text" name="ReleaseDate" /><br />
+            CoverArt: <input type="text" name="CoverArt" /><br />
+            SongName: <input type="text" name="SongNames" />
+
+            <input type="submit" />
+        </form> <br /><br>
+    </div>
+
+
+
+
+    @foreach (var item in Model)
+    {
+        foreach (var song in item.SongName)
+        {
+
+            <div class="Songs">@song.SongName</div>
+        }
+
+
+        <div class="Artist">@item.Artist</div>
+        <div class="AlbumName">@item.AlbumName</div>
+        <div class="CoverArt">@item.CoverArt</div>
+        <div class="ReleaseDate">@item.ReleaseDate</div>
+    }
+
+</div>
